@@ -1,0 +1,1 @@
+1. check dockerfile: for calling of building command (reproduce: clean and run ./run_test.sh)
