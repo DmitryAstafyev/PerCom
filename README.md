@@ -1,4 +1,5 @@
 ## Introduction
+
 This repository compares implementations of a simple REST API server written in:
 
 - NodeJS
@@ -18,6 +19,7 @@ Each implementation was built using the most stable, efficient, and widely adopt
 - Python – `fastapi` (with `uvicorn` as the server)
 
 ## Test Description
+
 Each server implementation is run in its own dedicated Docker container. Then, using proptest (in Rust), a workload is generated: N requests to the server are sent, repeated M times. For example, if one iteration consists of 100 requests (`N = 100`), and the total number of iterations is 1000 (`M = 1000`), the server handles 100,000 requests in a single test run.
 
 For each operation type (`create`, `read`, `update`, `list`, `delete`), the response time is measured. The results are averaged and presented in a summary table:
@@ -41,6 +43,8 @@ It is important to note that during testing, the server performs no disk or exte
 ![image](stat/performance.png)
 
 The clear leader in terms of performance is the Rust implementation, with an average request time consistently around 0.4 ms. Next comes Node.js, delivering about 0.5 ms per request, while Python noticeably lags behind with an average of approximately 2.5 ms per request.
+
+Just to clarify - the Y-axis represents the number of test iterations. As mentioned earlier, each iteration sends 100 requests. So if you see 100 on the Y-axis, that means a total of 10,000 requests (100 × 100) were sent.
 
 This makes one thing obvious: if you're paying for every millisecond and consumed resource (as is the case with platforms like AWS Lambda), the choice becomes trivial  avoid Python.
 
