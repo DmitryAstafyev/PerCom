@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+    server:
+        build:
+            context: .
+        environment:
+            - NODE_ENV=production
+        ports:
+            - "8080:8080"
+        networks:
+            - internal
+        healthcheck:
+            test: ["CMD", "curl", "-v", "http://localhost:8080/posts"]
+            interval: 2s
+            timeout: 1s
+            retries: 10
+            start_period: 2s
+
+    test:
+        volumes:
+            - ./stat:/tmp
+        build:
+            context: ../rust
+        environment:
+            RUST_SERVER_TEST: "1"
+            RUST_CLIENT_ADDR: "server:8080"
+            WRITE_TEST_RESULT_TO_FILE: "1"
+        depends_on:
+            server:
+                condition: service_healthy
+        networks:
+            - internal
+
+networks:
+    internal:

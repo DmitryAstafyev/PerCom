@@ -1,0 +1,36 @@
+{
+    "name": "server",
+    "version": "0.0.1",
+    "chipmunk": {
+        "versions": {}
+    },
+    "description": "Just test server",
+    "main": "./dist/main.js",
+    "copyright": "",
+    "dependencies": {
+        "body-parser": "^2.2.0",
+        "express": "^5.1.0",
+        "pino": "^9.7.0",
+        "tslib": "^2.8.1",
+        "uuid": "^11.0.5"
+    },
+    "devDependencies": {
+        "@types/express": "^5.0.3",
+        "@types/node": "^22.10.10",
+        "@types/pino": "^7.0.5",
+        "@types/uuid": "^10.0.0",
+        "@typescript-eslint/eslint-plugin": "^8.21.0",
+        "@typescript-eslint/parser": "^8.21.0",
+        "eslint": "^9.18.0",
+        "eslint-plugin-import": "^2.31.0",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^7.2.1",
+        "typescript": "^5.7.3"
+    },
+    "scripts": {
+        "build": "node_modules/.bin/tsc -p tsconfig.json",
+        "start": "node_modules/.bin/tsc -p tsconfig.json && node ./dist/main.js",
+        "lint": "node_modules/.bin/eslint . --max-warnings=0"
+    },
+    "packageManager": "yarn@4.6.0"
+}
