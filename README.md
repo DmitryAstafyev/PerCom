@@ -22,6 +22,7 @@ Each server implementation is run in its own dedicated Docker container. Then, u
 
 For each operation type (`create`, `read`, `update`, `list`, `delete`), the response time is measured. The results are averaged and presented in a summary table:
 
+```
 | Operation       |      Count |   Total (ns) |   Avg (ns) |   Total (ms) |   Avg (ms)
 | ------------------------------------------------------------------------------------
 | CreatePost      |     100000 |   8489759315 |      84897 |      8489.76 |       0.08
@@ -29,6 +30,7 @@ For each operation type (`create`, `read`, `update`, `list`, `delete`), the resp
 | UpdatePost      |     100000 |   4917119584 |      49171 |      4917.12 |       0.05
 | ListPost        |       1000 |    109879545 |     109879 |       109.88 |       0.11
 | DeletePost      |     100000 |   3734050887 |      37340 |      3734.05 |       0.04
+```
 
 In addition, every individual measurement is stored in a CSV file, which allows for tracking performance dynamics over time and identifying warm-up phases, latency spikes, and stabilization plateaus.
 
