@@ -1,0 +1,4 @@
+.venv
+stat
+tmp
+**/__pycache__
