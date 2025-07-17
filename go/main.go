@@ -18,14 +18,14 @@ type Post struct {
 
 type Backend struct {
 	Posts map[string]Post
-	Lock  sync.Mutex
+	Lock  sync.RWMutex
 	Mux   http.ServeMux
 }
 
 func (b *Backend) GetPosts(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
-	b.Lock.Lock()
-	defer b.Lock.Unlock()
+	b.Lock.RLock()
+	defer b.Lock.RUnlock()
 	postsList := make([]Post, 0, len(b.Posts))
 	for _, post := range b.Posts {
 		postsList = append(postsList, post)
@@ -53,8 +53,8 @@ func (b *Backend) CreatePost(w http.ResponseWriter, r *http.Request) {
 
 func (b *Backend) GetPostById(w http.ResponseWriter, r *http.Request) {
 	postID := r.PathValue("post_id")
-	b.Lock.Lock()
-	defer b.Lock.Unlock()
+	b.Lock.RLock()
+	defer b.Lock.RUnlock()
 	post, exists := b.Posts[postID]
 	if !exists {
 		http.Error(w, "Post not found", http.StatusNotFound)
