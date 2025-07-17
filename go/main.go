@@ -52,7 +52,7 @@ func (b *Backend) CreatePost(w http.ResponseWriter, r *http.Request) {
 }
 
 func (b *Backend) GetPostById(w http.ResponseWriter, r *http.Request) {
-	postID := r.URL.Path[len("/posts/"):]
+	postID := r.PathValue("post_id")
 	b.Lock.Lock()
 	defer b.Lock.Unlock()
 	post, exists := b.Posts[postID]
@@ -65,7 +65,7 @@ func (b *Backend) GetPostById(w http.ResponseWriter, r *http.Request) {
 }
 
 func (b *Backend) UpdatePostById(w http.ResponseWriter, r *http.Request) {
-	postID := r.URL.Path[len("/posts/"):]
+	postID := r.PathValue("post_id")
 	var updatedPost Post
 	if err := json.NewDecoder(r.Body).Decode(&updatedPost); err != nil {
 		http.Error(w, "Failed to decode JSON", http.StatusBadRequest)
@@ -84,7 +84,7 @@ func (b *Backend) UpdatePostById(w http.ResponseWriter, r *http.Request) {
 }
 
 func (b *Backend) DeletePostById(w http.ResponseWriter, r *http.Request) {
-	postID := r.URL.Path[len("/posts/"):]
+	postID := r.PathValue("post_id")
 	b.Lock.Lock()
 	defer b.Lock.Unlock()
 	if _, ok := b.Posts[postID]; !ok {
