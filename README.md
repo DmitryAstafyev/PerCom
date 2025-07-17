@@ -5,6 +5,9 @@ This repository compares implementations of a simple REST API server written in:
 - NodeJS
 - Rust
 - Python
+- Go
+
+> Initially, I was benchmarking only the three platforms mentioned above, but huge thanks to @encbladexp for adding measurements for GoLang as well. I won’t attempt to compare the Go implementation in terms of readability, extensibility, or maintainability - since I didn’t write it myself - but it’s clear that Go’s tooling is on par with Rust and Node.js.
 
 Thanks to the fact that all three server implementations follow the same REST API specification, data formats, and structure, we can compare not only their performance, but also the "look and feel" of the code in terms of:
 
@@ -76,6 +79,12 @@ In Node.js, it’s easier and faster to get a working solution  but it’s also 
 
 Rust, on the other hand, demands more effort up front. But in return, it forces you to think about the edges  about errors, types, and potential failure points. It slows down the initial development, but results in a system that’s far more reliable and resilient.
 
+### Go
+
+The Go implementation clearly delivers competitive performance. Moreover, it outperforms Node.js in part because - like Rust - it doesn't require any "warm-up" period and reaches a stable performance plateau almost immediately.
+
+As for readability, extensibility, and maintainability - I won’t evaluate the Go solution, since it wasn’t written by me. Once again, big thanks to @encbladexp for contributing the Go server implementation.
+
 ## Subjective Conclusions
 
 The conclusion is simple: don’t put Python into production if performance matters to you. It’s great for scripts, prototypes, and lightweight APIs  but under high load, its latency becomes quite noticeable.
@@ -84,7 +93,7 @@ Node.js performs well  it’s competitive in terms of speed and especially appea
 
 Rust is the opposite end of the spectrum. Getting started is harder: you’ll spend more time on architecture, types, and design. But in return, you get a system that is as predictable and reliable as it gets, where simply “forgetting to handle an error” is nearly impossible.
 
-Choosing between Node.js and Rust is not so obvious. It depends on your priorities: development speed vs. long-term reliability, short-term efficiency vs. long-term operational safety. But one thing is clear: both are significantly more suitable than Python in scenarios where performance and stability are critical.
+Choosing between Node.js, Rust and Go is not so obvious. It depends on your priorities: development speed vs. long-term reliability, short-term efficiency vs. long-term operational safety. But one thing is clear: both are significantly more suitable than Python in scenarios where performance and stability are critical.
 
 ## Running the Tests
 
