@@ -7,7 +7,7 @@ This repository compares implementations of a simple REST API server written in:
 - Python
 - Go
 
-> Initially, I was benchmarking only the three platforms mentioned above, but huge thanks to @encbladexp for adding measurements for GoLang as well. I won’t attempt to compare the Go implementation in terms of readability, extensibility, or maintainability - since I didn’t write it myself - but it’s clear that Go’s tooling is on par with Rust and Node.js.
+> Initially, I was benchmarking only the three platforms mentioned above, but huge thanks to [@encbladexp](https://github.com/encbladexp) for adding measurements for GoLang as well. I won’t attempt to compare the Go implementation in terms of readability, extensibility, or maintainability - since I didn’t write it myself - but it’s clear that Go’s tooling is on par with Rust and Node.js.
 
 Thanks to the fact that all three server implementations follow the same REST API specification, data formats, and structure, we can compare not only their performance, but also the "look and feel" of the code in terms of:
 
@@ -83,7 +83,7 @@ Rust, on the other hand, demands more effort up front. But in return, it forces 
 
 The Go implementation clearly delivers competitive performance. Moreover, it outperforms Node.js in part because - like Rust - it doesn't require any "warm-up" period and reaches a stable performance plateau almost immediately.
 
-As for readability, extensibility, and maintainability - I won’t evaluate the Go solution, since it wasn’t written by me. Once again, big thanks to @encbladexp for contributing the Go server implementation.
+As for readability, extensibility, and maintainability - I won’t evaluate the Go solution, since it wasn’t written by me. Once again, big thanks to [@encbladexp](https://github.com/encbladexp) for contributing the Go server implementation.
 
 ## Subjective Conclusions
 
