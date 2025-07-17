@@ -30,8 +30,8 @@ func (b *Backend) GetPosts(w http.ResponseWriter, r *http.Request) {
 	for _, post := range b.Posts {
 		postsList = append(postsList, post)
 	}
-	w.WriteHeader(http.StatusOK)
-	if err := json.NewEncoder(w).Encode(postsList); err != nil {
+	err := json.NewEncoder(w).Encode(postsList)
+	if err != nil {
 		http.Error(w, "Failed to encode JSON", http.StatusInternalServerError)
 		return
 	}
