@@ -6,6 +6,7 @@ This repository compares implementations of a simple REST API server written in:
 - Rust
 - Python
 - Go
+- Java
 
 > Initially, I was benchmarking only the three platforms mentioned above, but huge thanks to [@encbladexp](https://github.com/encbladexp) for adding measurements for GoLang as well. I won’t attempt to compare the Go implementation in terms of readability, extensibility, or maintainability - since I didn’t write it myself - but it’s clear that Go’s tooling is on par with Rust and Node.js.
 
@@ -20,6 +21,7 @@ Each implementation was built using the most stable, efficient, and widely adopt
 - Rust – `actix-web`
 - NodeJS – `express`
 - Python – `fastapi` (with `uvicorn` as the server)
+- Java - `spring-boot` (with `embedded Tomcat`)
 
 ## Test Description
 
