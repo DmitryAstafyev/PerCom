@@ -7,6 +7,7 @@ This repository compares implementations of a simple REST API server written in:
 - Python
 - Go
 - Java
+- C#.Net
 
 > Initially, I was benchmarking only the three platforms mentioned above, but huge thanks to [@encbladexp](https://github.com/encbladexp) for adding measurements for GoLang as well. I won’t attempt to compare the Go implementation in terms of readability, extensibility, or maintainability - since I didn’t write it myself - but it’s clear that Go’s tooling is on par with Rust and Node.js.
 > Also, big thanks to [@Avdiji](https://github.com/Avdiji) for his Java contribution. It’s a great opportunity not just to compare performance - which isn’t the only goal of this repo - but also to dive into the code and get a feel for each language and its ecosystem.
