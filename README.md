@@ -24,6 +24,7 @@ Each implementation was built using the most stable, efficient, and widely adopt
 - NodeJS – `express`
 - Python – `fastapi` (with `uvicorn` as the server)
 - Java - `spring-boot` (with `embedded Tomcat`)
+- C#.Net – `ASP.NET Core` (minimal hosting model)
 
 ## Test Description
 
